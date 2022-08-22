@@ -1,5 +1,4 @@
 const container = document.querySelector(".container");
-const div = document.querySelector(".div")
 
 //create the rows
 for (let i = 0; i < 16; i++){
@@ -16,6 +15,8 @@ for (let i = 0; i < 16; i++){
     }
 }
 
-
-
-
+const div = Array.from(document.getElementsByClassName("box"));
+div.forEach((box) => {
+    box.addEventListener("mouseenter", () => console.log("Mouse Enter"));
+    box.addEventListener("mouseleave", () => console.log("Mouse leave"));
+})
