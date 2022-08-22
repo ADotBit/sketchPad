@@ -15,8 +15,17 @@ for (let i = 0; i < 16; i++){
     }
 }
 
+// make color
+function makeColor(){
+    event.target.style.background = "blue";
+}
+
+
+//Target each box of the grid
 const div = Array.from(document.getElementsByClassName("box"));
 div.forEach((box) => {
-    box.addEventListener("mouseenter", () => console.log("Mouse Enter"));
-    box.addEventListener("mouseleave", () => console.log("Mouse leave"));
+    box.addEventListener("mousedown", makeColor); //mousedown is the click
+    box.addEventListener("mouseover", event => { //mouseover is to continue the action when stay click
+        if (event.buttons == 1) makeColor(event);
+    })
 })
