@@ -17,7 +17,8 @@ for (let i = 0; i < 16; i++){
 
 // make color
 function makeColor(){
-    event.target.style.background = "blue";
+    const color = document.getElementById("colorPicker").value;
+    event.target.style.background = color;
 }
 
 
