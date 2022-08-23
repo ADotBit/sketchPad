@@ -1,23 +1,28 @@
 const container = document.querySelector(".container");
 
-
-function makeBoard(row, cols){
+function makeBoard(rows, cols){
     //make a root property to adapt the grid
     container.style.setProperty('--grid-cols', cols);
+    container.style.setProperty('--grid-rows', rows);
     //create the rows
-    for (let i = 0; i < row; i++){
-        const rows = document.createElement("div");
-        rows.classList.add("box");
-        container.append(rows);
-    //create columns
-    for(let j = 0; j < cols; j++){
-        const columns = document.createElement("div");
-        columns.classList.add("box");
-        container.append(columns)
+    for (let i = 0; i < rows; i++){
+        //create columns
+        for(let j = 0; j < cols; j++){
+            const columns = document.createElement("div");
+            columns.classList.add("box");
+            container.append(columns);
         }
+        const row = document.createElement("div");
+        row.classList.add("box");
+        container.append(row);
     }
 }
-makeBoard(20, 20);
+
+let getSize = parseInt(prompt("Choose the size of the board: "));
+makeBoard(getSize, getSize);
+
+
+
 
 // make color
 function makeColor(){
@@ -31,5 +36,5 @@ div.forEach((box) => {
     box.addEventListener("mousedown", makeColor); //mousedown is the click
     box.addEventListener("mouseover", event => { //mouseover is to continue the action when stay click
         if (event.buttons == 1) makeColor(event);
-    })
-})
+    });
+});
