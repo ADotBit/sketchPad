@@ -135,6 +135,25 @@ main{
     display: grid;
 }
 
+
+#colorPicker{
+    min-width: 50px;
+    min-height: 50px;
+    border: none;
+    border-radius: 100%;
+}
+
+#colorPicker::-webkit-color-swatch{
+    border-radius: 100%;
+    border: none;
+}
+
+#colorPicker::-moz-color-swatch{
+    border-radius: 100%;
+    border: none;
+}
+
+
 .box{
     border: solid var(--grey) 1px;
     min-width: 10px;
