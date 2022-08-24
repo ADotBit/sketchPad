@@ -12,10 +12,23 @@
 
 </head>
 <body>
+  <header>
+    <h1 class="logo">Drawing Pad</h1>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <nav>
+      <ul>
+        <li><button class="getUser">Size</button></li>
+        <li><button class="clear">Clear</button></li>
+        <li><button class="reset">Reset</button></li>
+      </ul>
+    </nav>
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+    </label>
+  </header>
   <main>
     <section id="userChoice">
       <input id="colorPicker" type="color"  oninput="makeColor( this )">
-      <button class="getUser">Choose the size of board</button>
     </section>
     <section id="board">
       <div class="container"></div>

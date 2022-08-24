@@ -7,14 +7,15 @@ function makeBoard(size){
     // create the rows and columns with the css above
     for (let i = 0; i < (size * size); i++){
         const boxes = document.createElement("div");
-        container.appendChild(boxes).className = "box";
+        boxes.classList.add("box");
+        container.appendChild(boxes);
     }
 
 }
 
 function clearBoard(){
     container.innerHTML = "";
-}
+};
 
 function changeBoard(){
     const userButton = document.querySelector(".getUser");
@@ -26,23 +27,26 @@ function changeBoard(){
 }
 
 
-/*  // make color
+// make color
 function makeColor(){
     const color = document.getElementById("colorPicker").value;
     event.target.style.background = color;
 }
 
 //Target each box of the grid and change color
-const div = Array.from(document.getElementsByClassName("box"));
+const div = Array.from(document.querySelectorAll("div"));
 div.forEach((box) => {
     box.addEventListener("mousedown", makeColor); //mousedown is the click
     box.addEventListener("mouseover", event => { //mouseover is to continue the action when stay click
         if (event.buttons == 1) makeColor(event);
     });
-});  */
+});   
+
+//Reset everything by reloading the page
+const resetBtn = document.querySelector(".reset");
+resetBtn.addEventListener("click", () => location.reload());
 
 window.onload = () => {
     makeBoard(defaultSize)
     changeBoard()
-
 }

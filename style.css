@@ -1,41 +1,203 @@
 :root{
-    --grid-rows: 1;
-    --grid-cols: 1;
+    --grey: #b27d4a;
+    --cream: #fffceb;
 }
 
-*{
+*, *::before, *::after{
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
 body{
     min-height: 100vh;
+    background: var(--cream);
 }
 
-.container{
-    height: 500px;
-    width: 500px;  
-    display: grid;
+/* Navigation part */
 
+header{
+    background: var(--grey);
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    color: #fffceb;
+}
+
+.nav-toggle{
+    display: none;
+}
+
+.nav-toggle-label{
+    position: absolute;
+    top: 0; 
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+    display: block;
+    background: white;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+    content: "";
+    position: absolute;
+}
+
+.nav-toggle-label span::before{
+    bottom: 7px;
+}
+
+.nav-toggle-label span::after{
+    top: 7px;
+}
+
+nav{
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: var(--grey);
+    width: 100%;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+
+nav ul{
+    list-style: none;
+}
+
+nav li{
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+nav button{
+    color: white;
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+
+nav button:hover{
+    color: #000;
+}
+
+.nav-toggle:checked ~ nav {
+    transform: scale(1, 1);
+}
+
+.nav-toggle:checked ~ nav button{
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+
+
+#colorPicker{
+    background: none;
+    border: none;
+}
+
+/* Main part */
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+
+/* #board{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.container{
+    max-height: 940px;
+    max-width: 940px;
+    display: grid;
+    margin-top: 200px;
+    
 }
 
 .box{
-    border: solid black 1px;
-    min-width: 5rem;
-    min-height: 5rem;
+    border: solid var(--grey) 1px;
+    width: 10px;
+    height: 10px;
     display: inline-block;
 }
 
 
+@media screen and (min-width: 800px){
+    .nav-toggle-label{
+        display: none;
 
-#colorPicker{
-    min-width: 8rem;
-    min-height: 4rem;
-    margin-bottom: 2rem;
+    }
+
+    header{
+        display: grid;
+        grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    }
+
+    .logo{
+        grid-column: 2 / 3;
+    }
+
+    nav{
+        all: unset;
+        grid-column: 3 / 4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    nav ul{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    nav li{
+        margin-left: 3em;
+        margin-bottom: 0;
+    }
+    
+    nav button{
+        opacity: 1;
+        position: relative;
+    }
+
+    nav button::before{
+        content: " ";
+        display: block;
+        height: 12px;
+        background: black;
+        position: absolute;
+        top: -.75em;
+        left: 0;
+        right: 0;
+        transform: scale(0, 1);
+        transition: transform ease-in-out 250ms;
+    }
+
+    nav button:hover::before{
+        transform: scale(1, 1)
+    }
 }
 
-.getUser{
-    min-width: 8rem;
-    min-height: 4rem;
-    margin-bottom: 2rem;
-}
