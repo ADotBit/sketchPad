@@ -1,30 +1,32 @@
 const container = document.querySelector(".container");
+const defaultSize = 16;
 
-function makeBoard(rows, cols){
-    //make a root property to adapt the grid
-    container.style.setProperty('--grid-cols', cols);
-    container.style.setProperty('--grid-rows', rows);
-    //create the rows
-    for (let i = 0; i < rows; i++){
-        //create columns
-        for(let j = 0; j < cols; j++){
-            const columns = document.createElement("div");
-            columns.classList.add("box");
-            container.append(columns);
-        }
-        const row = document.createElement("div");
-        row.classList.add("box");
-        container.append(row);
+function makeBoard(size){
+    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+    container.style.gridTemplateRows = `repeat(${size}, 1fr)`
+    // create the rows and columns with the css above
+    for (let i = 0; i < (size * size); i++){
+        const boxes = document.createElement("div");
+        container.appendChild(boxes).className = "box";
     }
+
 }
 
-let getSize = parseInt(prompt("Choose the size of the board: "));
-makeBoard(getSize, getSize);
+function clearBoard(){
+    container.innerHTML = "";
+}
+
+function changeBoard(){
+    const userButton = document.querySelector(".getUser");
+    userButton.addEventListener("click", () => {
+        let getSize = parseInt(prompt("Choose the size of the board: "));
+        clearBoard();
+        makeBoard(getSize);
+    })
+}
 
 
-
-
-// make color
+/*  // make color
 function makeColor(){
     const color = document.getElementById("colorPicker").value;
     event.target.style.background = color;
@@ -37,4 +39,10 @@ div.forEach((box) => {
     box.addEventListener("mouseover", event => { //mouseover is to continue the action when stay click
         if (event.buttons == 1) makeColor(event);
     });
-});
+});  */
+
+window.onload = () => {
+    makeBoard(defaultSize)
+    changeBoard()
+
+}
