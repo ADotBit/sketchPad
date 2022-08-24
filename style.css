@@ -120,9 +120,9 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5rem;
+    min-height: 100vh;
+    gap: 2em;
 }
-
 /* #board{
     display: flex;
     justify-content: center;
@@ -133,15 +133,13 @@ main{
     max-height: 940px;
     max-width: 940px;
     display: grid;
-    margin-top: 200px;
-    
 }
 
 .box{
     border: solid var(--grey) 1px;
-    width: 10px;
-    height: 10px;
-    display: inline-block;
+    min-width: 10px;
+    min-height: 10px;
+    display: flex;
 }
 
 
