@@ -31,21 +31,11 @@ function clearBoard(){
     })
 }
 
- 
-
 function changeBoard(){
     const box = container.querySelectorAll("div")
     box.forEach(pixel => pixel.remove());
     makeBoard(slide.value)
-    /* const userButton = document.querySelector(".getUser");
-    userButton.addEventListener("click", () => {
-        let getSize = parseInt(prompt("Choose the size of the board: "));
-        resetBoard();
-        makeBoard(getSize);
-    }) */
 }
-
-slide.addEventListener("mouseup", changeBoard)
 
 // make color
 function makeColor(){
@@ -65,10 +55,9 @@ div.forEach((box) => {
 resetBtn.addEventListener("click", () => location.reload());
 // Clear the board
 clearBtn.addEventListener("click", clearBoard);
-
-
+// Set the size of board
+slide.addEventListener("mouseup", changeBoard)
 
 window.onload = () => {
     makeBoard(defaultSize);
-
 }

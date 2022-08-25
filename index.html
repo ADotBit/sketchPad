@@ -13,11 +13,10 @@
 </head>
 <body>
   <header>
-    <h1 class="logo">Drawing Pad</h1>
+    <h1 class="logo">Pixel Drawing Pad</h1>
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <nav>
       <ul>
-        <li><button class="getUser">Size</button></li>
         <li><button class="clear">Clear</button></li>
         <li><button class="reset">Reset</button></li>
       </ul>
@@ -31,9 +30,10 @@
     <section class="userChoice">
       <input id="colorPicker" type="color" value="#494848" oninput="makeColor( this )">
       <div class="size">
-        <p class="sizeValue">x</p>
+        <p class="sizeValue">Set board Size:</p>
         <input type="range" id="sizeSlider" value="16" min="1" max="64">
       </div>
+      <button>Eraser</button>
     </section>
     <section class="board">
       <div class="container"></div>

@@ -147,6 +147,7 @@ main{
     align-items: center;
     color: var(--grey);
     font-weight: 900;
+    gap: 5rem;
 }
 
 #colorPicker{
@@ -166,7 +167,7 @@ main{
     border: none;
 }
 
-@media screen and (min-width: 800px){
+@media screen and (min-width: 860px){
     .nav-toggle-label{
         display: none;
 
