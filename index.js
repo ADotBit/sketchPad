@@ -1,7 +1,10 @@
 const container = document.querySelector(".container");
+
 const resetBtn = document.querySelector(".reset");
 const clearBtn = document.querySelector(".clear");
-const div = Array.from(document.querySelectorAll("div"));
+const slide = document.querySelector("#sizeSlider")
+
+const div = Array.from(document.querySelectorAll(".container"));
 
 const defaultSize = 16;
 
@@ -22,23 +25,27 @@ function resetBoard(){
 };
 
 function clearBoard(){
-    const box = document.querySelectorAll(".box");
+    const box = container.querySelectorAll("div");
     box.forEach((item) => {
         item.style.backgroundColor = "transparent";
     })
 }
-clearBtn.addEventListener("click", clearBoard);
+
  
 
 function changeBoard(){
-    const userButton = document.querySelector(".getUser");
+    const box = container.querySelectorAll("div")
+    box.forEach(pixel => pixel.remove());
+    makeBoard(slide.value)
+    /* const userButton = document.querySelector(".getUser");
     userButton.addEventListener("click", () => {
         let getSize = parseInt(prompt("Choose the size of the board: "));
         resetBoard();
         makeBoard(getSize);
-    })
+    }) */
 }
 
+slide.addEventListener("mouseup", changeBoard)
 
 // make color
 function makeColor(){
@@ -56,8 +63,12 @@ div.forEach((box) => {
 
 //Reset everything by reloading the page
 resetBtn.addEventListener("click", () => location.reload());
+// Clear the board
+clearBtn.addEventListener("click", clearBoard);
+
+
 
 window.onload = () => {
     makeBoard(defaultSize);
-    changeBoard();
+
 }

@@ -1,6 +1,7 @@
 :root{
-    --grey: #b27d4a;
+    --caramel: #b27d4a;
     --cream: #fffceb;
+    --grey: #494848;
 }
 
 *, *::before, *::after{
@@ -17,7 +18,7 @@ body{
 /* Navigation part */
 
 header{
-    background: var(--grey);
+    background: var(--caramel);
     text-align: center;
     position: fixed;
     z-index: 999;
@@ -69,7 +70,7 @@ nav{
     text-align: left;
     top: 100%;
     left: 0;
-    background: var(--grey);
+    background: var(--caramel);
     width: 100%;
     transform: scale(1, 0);
     transform-origin: top;
@@ -118,24 +119,35 @@ nav button:hover{
 
 main{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     gap: 2em;
 }
 
-/* #board{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}  */
 
 .container{
-    max-height: 940px;
-    max-width: 940px;
+    height: 340px;
+    width: 340px;
     display: grid;
 }
 
+
+.box{
+    border: solid var(--caramel) 1px;
+    min-width: 10px;
+    min-height: 10px;
+    display: flex;
+}
+
+.userChoice{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--grey);
+    font-weight: 900;
+}
 
 #colorPicker{
     min-width: 50px;
@@ -153,15 +165,6 @@ main{
     border-radius: 100%;
     border: none;
 }
-
-
-.box{
-    border: solid var(--grey) 1px;
-    min-width: 10px;
-    min-height: 10px;
-    display: flex;
-}
-
 
 @media screen and (min-width: 800px){
     .nav-toggle-label{
@@ -217,5 +220,13 @@ main{
     nav button:hover::before{
         transform: scale(1, 1)
     }
+
+    /* Main */
+
+    .container{
+        width: 700px;
+        height: 700px;
+    }
+
 }
 
