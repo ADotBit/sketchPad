@@ -13,6 +13,7 @@
 body{
     min-height: 100vh;
     background: var(--cream);
+    font-family: sans-serif;
 }
 
 /* Navigation part */
@@ -86,7 +87,7 @@ nav li{
     margin-left: 1em;
 }
 
-nav button{
+nav a{
     color: white;
     border: none;
     background: none;
@@ -96,7 +97,7 @@ nav button{
     transition: opacity 150ms ease-in-out;
 }
 
-nav button:hover{
+nav a:hover{
     color: #000;
 }
 
@@ -104,26 +105,21 @@ nav button:hover{
     transform: scale(1, 1);
 }
 
-.nav-toggle:checked ~ nav button{
+.nav-toggle:checked ~ nav a{
     opacity: 1;
     transition: opacity 250ms ease-in-out 250ms;
 }
 
 
-#colorPicker{
-    background: none;
-    border: none;
-}
-
 /* Main part */
 
 main{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    gap: 2em;
+    gap: 2rem;
 }
 
 
@@ -131,6 +127,8 @@ main{
     height: 340px;
     width: 340px;
     display: grid;
+    border: 3px solid;
+    box-shadow: 0px 5px 10px #888886;
 }
 
 
@@ -143,17 +141,27 @@ main{
 
 .userChoice{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     color: var(--grey);
     font-weight: 900;
-    gap: 5rem;
+    gap: 2em;
+}
+
+.size{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
 }
 
 #colorPicker{
     min-width: 50px;
     min-height: 50px;
     border: none;
+    background: none;
     border-radius: 100%;
 }
 
@@ -165,6 +173,45 @@ main{
 #colorPicker::-moz-color-swatch{
     border-radius: 100%;
     border: none;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    margin-right: 15px;
+    width: 100px;
+    height: 8px;
+    background: #fff;
+    border-radius: 5px;
+    border: 2px #555 solid;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: var(--grey);
+    cursor: pointer;
+    box-shadow: 0 0 2px 0 #555;
+    transition: background .3s ease-in-out;
+  }
+  
+  input[type=range]::-webkit-slider-runnable-track  {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+  }
+
+.userChoice button{
+    padding: 4px;
+    background: #fff;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--grey);
+    border-radius: 1em;
+    box-shadow: 0px 5px 15px #d2d2cf;
 }
 
 @media screen and (min-width: 860px){
@@ -200,12 +247,12 @@ main{
         margin-bottom: 0;
     }
     
-    nav button{
+    nav a{
         opacity: 1;
         position: relative;
     }
 
-    nav button::before{
+    nav a::before{
         content: " ";
         display: block;
         height: 12px;
@@ -218,15 +265,38 @@ main{
         transition: transform ease-in-out 250ms;
     }
 
-    nav button:hover::before{
+    nav a:hover::before{
         transform: scale(1, 1)
     }
 
     /* Main */
+    main{
+        flex-direction: row;
+        gap: 5rem;
+    }
+
+    .userChoice{
+        flex-direction: column;
+        gap: 8rem;
+    }
 
     .container{
         width: 700px;
         height: 700px;
+    }
+
+    #colorPicker{
+        min-width: 100px;
+        min-height: 100px;
+    }
+
+    .userChoice button{
+        width: 100px;
+        font-size: 1rem;
+    }
+
+    .size{
+        font-size: 1.2em;
     }
 
 }

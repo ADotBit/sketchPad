@@ -17,8 +17,8 @@
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <nav>
       <ul>
-        <li><button class="clear">Clear</button></li>
-        <li><button class="reset">Reset</button></li>
+        <li><a >Contact</a></li>
+        <li><a>About</a></li>
       </ul>
     </nav>
     <label for="nav-toggle" class="nav-toggle-label">
@@ -30,10 +30,11 @@
     <section class="userChoice">
       <input id="colorPicker" type="color" value="#494848" oninput="makeColor( this )">
       <div class="size">
-        <p class="sizeValue">Set board Size:</p>
+        <p class="sizeValue">Size:</p>
         <input type="range" id="sizeSlider" value="16" min="1" max="64">
       </div>
-      <button>Eraser</button>
+      <button class="clear">Clear</button>
+      <button class="reset">Reset</button>
     </section>
     <section class="board">
       <div class="container"></div>
