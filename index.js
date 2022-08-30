@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
 
+const colorBtn = document.querySelector(".color")
 const resetBtn = document.querySelector(".reset");
 const clearBtn = document.querySelector(".clear");
 const slide = document.querySelector("#sizeSlider")
@@ -44,13 +45,17 @@ function makeColor(){
 }
 
 //Target each box of the grid and change color
-div.forEach((box) => {
-    box.addEventListener("mousedown", makeColor); //mousedown is the click
-    box.addEventListener("mouseover", event => { //mouseover is to continue the action when stay click
-        if (event.buttons == 1) makeColor(event);
-    });
-});   
+function chooseColor(){
+    div.forEach((box) => {
+        box.addEventListener("mousedown", makeColor); //mousedown is the click
+        box.addEventListener("mouseover", event => { //mouseover is to continue the action when stay click
+            if (event.buttons == 1) makeColor(event);
+        });
+    });   
+}
 
+//Activate button by clicking
+colorBtn.onclick = chooseColor;
 //Reset everything by reloading the page
 resetBtn.addEventListener("click", () => location.reload());
 // Clear the board
