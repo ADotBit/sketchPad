@@ -1,7 +1,5 @@
 const container = document.querySelector(".container");
 
-const checkbox = document.getElementById("checkBox");
-
 const colorBtn = document.getElementById("color");
 const eraseBtn = document.getElementById("eraser");
 const clearBtn = document.getElementById("clear");
