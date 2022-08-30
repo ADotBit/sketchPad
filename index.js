@@ -1,9 +1,9 @@
 const container = document.querySelector(".container");
 
-const colorBtn = document.querySelector(".color");
-const eraseBtn = document.querySelector(".eraser");
-const clearBtn = document.querySelector(".clear");
-const resetBtn = document.querySelector(".reset");
+const colorBtn = document.getElementById("color");
+const eraseBtn = document.getElementById("eraser");
+const clearBtn = document.getElementById("clear");
+const resetBtn = document.getElementById("reset");
 const slide = document.querySelector("#sizeSlider")
 
 const div = Array.from(document.querySelectorAll(".container"));
@@ -71,7 +71,17 @@ function makeErase(){
     });   
 }
 
+ colorBtn.addEventListener("click", () => {
+    colorBtn.classList.add("selectColor");
+    eraseBtn.classList.remove("selectColor");
+})
+ 
+ eraseBtn.addEventListener("click", () => {
+    eraseBtn.classList.add("selectColor");
+    colorBtn.classList.remove("selectColor");
+})
 
+//Erase divs one by one
 eraseBtn.onclick = makeErase;
 //Activate button by clicking
 colorBtn.onclick = chooseColor;
