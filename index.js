@@ -82,5 +82,6 @@ clearBtn.addEventListener("click", clearBoard);
 slide.addEventListener("mouseup", changeBoard)
 
 window.onload = () => {
-    makeBoard(defaultSize);z
+    makeBoard(defaultSize);
+    chooseColor();
 }
