@@ -93,6 +93,7 @@ nav a{
     background: none;
     font-size: 1.2rem;
     text-transform: uppercase;
+    text-decoration: none;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
 }
