@@ -51,7 +51,8 @@ function eraser(){
 
 //Target each box of the grid and change color
 function chooseColor(){
-    div.forEach((box) => {
+    const grid = container.querySelectorAll(".box")
+    grid.forEach((box) => {
         box.addEventListener("mousedown", makeColor); //mousedown is the click
         box.addEventListener("mouseover", event => { //mouseover is to continue the action when stay click
             if (event.buttons == 1) makeColor(event);
@@ -60,7 +61,8 @@ function chooseColor(){
 } 
 
 function makeErase(){
-    div.forEach((box) => {
+    const grid = container.querySelectorAll(".box")
+    grid.forEach((box) => {
         box.addEventListener("mousedown", eraser); //mousedown is the click
         box.addEventListener("mouseover", event => { //mouseover is to continue the action when stay click
             if (event.buttons == 1) eraser(event);
