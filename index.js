@@ -37,6 +37,7 @@ function changeBoard(){
     const box = container.querySelectorAll("div")
     box.forEach(pixel => pixel.remove());
     makeBoard(slide.value)
+    chooseColor()
 }
 
 // make color
