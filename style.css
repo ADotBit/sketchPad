@@ -141,7 +141,7 @@ main{
 
 .userChoice{
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     color: var(--grey);
@@ -218,6 +218,7 @@ input[type="range"] {
     background: var(--grey);
     color: #fff;
 }
+
 @media screen and (min-width: 860px){
     .nav-toggle-label{
         display: none;
@@ -301,6 +302,7 @@ input[type="range"] {
 
     .userChoice button, input{
         cursor: pointer;
+
     }
 
     .size{
