@@ -37,6 +37,8 @@ function changeBoard(){
     const box = container.querySelectorAll("div")
     box.forEach(pixel => pixel.remove());
     makeBoard(slide.value)
+    colorBtn.classList.add("selectColor");
+    eraseBtn.classList.remove("selectColor");
     chooseColor()
 }
 
@@ -74,17 +76,19 @@ function makeErase(){
  colorBtn.addEventListener("click", () => {
     colorBtn.classList.add("selectColor");
     eraseBtn.classList.remove("selectColor");
+    chooseColor();
 })
  
  eraseBtn.addEventListener("click", () => {
     eraseBtn.classList.add("selectColor");
     colorBtn.classList.remove("selectColor");
+    makeErase();
 })
 
-//Erase divs one by one
+/* //Erase divs one by one
 eraseBtn.onclick = makeErase;
 //Activate button by clicking
-colorBtn.onclick = chooseColor;
+colorBtn.onclick = chooseColor; */
 //Reset everything by reloading the page
 resetBtn.addEventListener("click", () => location.reload());
 // Clear the board
