@@ -277,7 +277,7 @@ input[type="range"] {
 
     .userChoice{
         flex-direction: column;
-        gap: 8rem;
+        gap: 5rem;
     }
 
     .container{
@@ -293,6 +293,10 @@ input[type="range"] {
     .userChoice button{
         width: 100px;
         font-size: 1rem;
+    }
+
+    .userChoice button, input{
+        cursor: pointer;
     }
 
     .size{

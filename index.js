@@ -1,8 +1,9 @@
 const container = document.querySelector(".container");
 
-const colorBtn = document.querySelector(".color")
-const resetBtn = document.querySelector(".reset");
+const colorBtn = document.querySelector(".color");
+const eraseBtn = document.querySelector(".eraser");
 const clearBtn = document.querySelector(".clear");
+const resetBtn = document.querySelector(".reset");
 const slide = document.querySelector("#sizeSlider")
 
 const div = Array.from(document.querySelectorAll(".container"));
@@ -44,6 +45,10 @@ function makeColor(){
     event.target.style.background = color;
 }
 
+function eraser(){
+    event.target.style.background = "transparent";
+}
+
 //Target each box of the grid and change color
 function chooseColor(){
     div.forEach((box) => {
@@ -52,8 +57,19 @@ function chooseColor(){
             if (event.buttons == 1) makeColor(event);
         });
     });   
+} 
+
+function makeErase(){
+    div.forEach((box) => {
+        box.addEventListener("mousedown", eraser); //mousedown is the click
+        box.addEventListener("mouseover", event => { //mouseover is to continue the action when stay click
+            if (event.buttons == 1) eraser(event);
+        });
+    });   
 }
 
+
+eraseBtn.onclick = makeErase;
 //Activate button by clicking
 colorBtn.onclick = chooseColor;
 //Reset everything by reloading the page
@@ -64,5 +80,5 @@ clearBtn.addEventListener("click", clearBoard);
 slide.addEventListener("mouseup", changeBoard)
 
 window.onload = () => {
-    makeBoard(defaultSize);
+    makeBoard(defaultSize);z
 }
