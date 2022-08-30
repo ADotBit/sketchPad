@@ -1,5 +1,7 @@
 const container = document.querySelector(".container");
 
+const checkbox = document.getElementById("checkBox");
+
 const colorBtn = document.getElementById("color");
 const eraseBtn = document.getElementById("eraser");
 const clearBtn = document.getElementById("clear");
@@ -49,7 +51,7 @@ function makeColor(){
 }
 
 function eraser(){
-    event.target.style.background = "transparent";
+    event.target.style.background = "none";
 }
 
 //Target each box of the grid and change color
@@ -60,7 +62,14 @@ function chooseColor(){
         box.addEventListener("mouseover", event => { //mouseover is to continue the action when stay click
             if (event.buttons == 1) makeColor(event);
         });
-    });   
+    }); 
+
+    grid.forEach((box) => {
+        box.removeEventListener("mousedown", eraser); //mousedown is the click
+        box.removeEventListener("mouseover", event => { //mouseover is to continue the action when stay click
+            if (event.buttons == 1) eraser(event);
+        });
+    });  
 } 
 
 function makeErase(){
@@ -69,6 +78,13 @@ function makeErase(){
         box.addEventListener("mousedown", eraser); //mousedown is the click
         box.addEventListener("mouseover", event => { //mouseover is to continue the action when stay click
             if (event.buttons == 1) eraser(event);
+        });
+    });
+    
+    grid.forEach((box) => {
+        box.removeEventListener("mousedown", makeColor); //mousedown is the click
+        box.removeEventListener("mouseover", event => { //mouseover is to continue the action when stay click
+            if (event.buttons == 1) makeColor(event);
         });
     });   
 }
@@ -85,10 +101,6 @@ function makeErase(){
     makeErase();
 })
 
-/* //Erase divs one by one
-eraseBtn.onclick = makeErase;
-//Activate button by clicking
-colorBtn.onclick = chooseColor; */
 //Reset everything by reloading the page
 resetBtn.addEventListener("click", () => location.reload());
 // Clear the board
