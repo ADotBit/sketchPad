@@ -150,10 +150,6 @@ main{
     gap: 2em;
 }
 
-.size{
-    display: none;
-}
-
 #colorPicker{
     min-width: 50px;
     min-height: 50px;
@@ -214,6 +210,10 @@ input[type="range"] {
 .userChoice .selectColor{
     background: var(--grey);
     color: #fff;
+}
+
+.size, #reset{
+    display: none;
 }
 
 @media screen and (min-width: 860px){
@@ -312,6 +312,10 @@ input[type="range"] {
 
     .size{
         font-size: 1.2em;
+    }
+
+    #reset{
+        display: inline-block;
     }
 
 }
